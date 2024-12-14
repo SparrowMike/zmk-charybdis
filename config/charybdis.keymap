@@ -4,9 +4,6 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/mouse.h>
 
-#include <dt-bindings/zmk/ext_power.h>
-#include <dt-bindings/zmk/outputs.h>
-
 #include <dt-bindings/zmk/input_transform.h>
 
 #include <input/processors.dtsi>
@@ -14,6 +11,7 @@
 #include <behaviors/mouse_keys.dtsi>
 
 #include "zmk-helpers/helper.h"
+#include "zmk-helpers/key-labels/34.h"
 
 #define HM_TAPPING_TERM 180
 #define HM_TAPPING_TERM_FAST 150
@@ -30,7 +28,6 @@
 #define SNIPE 4
 #define AUTO 5
 
-#include "zmk-helpers/key-labels/34.h"                                      // key-position labels
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LM0 LM1 LM2 LM3 LM4 LB0 LB1 LB2 LB3 LB4  // left-hand keys
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RM0 RM1 RM2 RM3 RM4 RB0 RB1 RB2 RB3 RB4  // right-hand keys
@@ -40,7 +37,7 @@
     trackball_move: trackball_move {
         compatible = "zmk,input-behavior-listener";
         device = <&vtrackball>;
-        layers = <BASE SNIPE SCROLL>;
+        layers = <BASE>;
         evt-type = <INPUT_EV_REL>;
         x-input-code = <INPUT_REL_X>;
         y-input-code = <INPUT_REL_Y>;
@@ -77,7 +74,6 @@
         time-to-live-ms = <1000>;
     };
 
-    // Smooth scroll accumulator
     ib_wheel_scaler: ib_wheel_scaler {
         compatible = "zmk,input-behavior-scaler";
         #binding-cells = <2>;
@@ -309,14 +305,14 @@
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
             bindings = <&kp PLUS>;
-            key-positions = <2 12>;
+            key-positions = <7 17>;
         };
 
         combo_equal {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
             bindings = <&kp EQUAL>;
-            key-positions = <7 17>;
+            key-positions = <8 18>;
         };
 
         combo_unlock {
@@ -373,7 +369,7 @@
         };
 
         NUMS {
-            display-name = "NUMS & SYM";
+            display-name = "NUMS";
             bindings = <
   &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT       &kp CARET  &kp AMPS   &kp ASTRK  &kp LPAR          &kp RPAR
   &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &kp NUMBER_4  &kp NUMBER_5    &kp MINUS  &kp EQUAL  &kp GRAVE  &kp LEFT_BRACKET  &kp RIGHT_BRACKET
