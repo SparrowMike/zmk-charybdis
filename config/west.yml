@@ -10,8 +10,8 @@ manifest:
     - name: mctechnology17
       url-base: https://github.com/mctechnology17
 
-    # - name: englmaxi
-    #   url-base: https://github.com/englmaxi
+    - name: englmaxi
+      url-base: https://github.com/englmaxi
 
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
@@ -27,7 +27,10 @@ manifest:
     - name: zmk-helpers
       remote: urob
       revision: main
-    - name: zmk-dongle-display-view
+    - name: zmk-dongle-display
+      remote: englmaxi
+      revision: main
+    - name: zmk-oled-adapter
       remote: mctechnology17
       revision: main
 
