@@ -4,5 +4,9 @@ config SHIELD_CHARYBDIS_DONGLE
 config SHIELD_CHARYBDIS_LEFT
 	def_bool $(shields_list_contains,charybdis_left)
 
+config SHIELD_CHARYBDIS_RIGHT_CENTRAL
+	def_bool $(shields_list_contains,charybdis_left_center)
+
 config SHIELD_CHARYBDIS_RIGHT
 	def_bool $(shields_list_contains,charybdis_right)
+
