@@ -260,14 +260,14 @@
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
             bindings = <&kp PLUS>;
-            key-positions = <2 12>;
+            key-positions = <7 17>;
         };
 
         combo_equal {
             timeout-ms = <COMBO_TERM_FAST>;
             require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
             bindings = <&kp EQUAL>;
-            key-positions = <7 17>;
+            key-positions = <8 18>;
         };
 
         combo_unlock {
