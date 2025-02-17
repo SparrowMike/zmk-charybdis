@@ -4,12 +4,13 @@ include:
     # snippet: studio-rpc-usb-uart
     # cmake-args: -DCONFIG_ZMK_STUDIO=y
 
-    snippet: zmk-usb-logging
-    cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
-
   - board: nice_nano_v2
     shield: charybdis_left
   - board: nice_nano_v2
     shield: charybdis_right
+
+    snippet: zmk-usb-logging
+    cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
+
   - board: nice_nano_v2
     shield: settings_reset
