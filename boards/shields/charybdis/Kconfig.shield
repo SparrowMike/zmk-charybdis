@@ -1,6 +1,9 @@
 config SHIELD_CHARYBDIS_DONGLE
 	def_bool $(shields_list_contains,charybdis_dongle)
 
+config SHIELD_CHARYBDIS_XIAO_DONGLE
+	def_bool $(shields_list_contains,charybdis_xiao_dongle)
+
 config SHIELD_CHARYBDIS_LEFT
 	def_bool $(shields_list_contains,charybdis_left)
 
