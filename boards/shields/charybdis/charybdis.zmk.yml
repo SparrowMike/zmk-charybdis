@@ -9,5 +9,6 @@ features:
   - pointer
 siblings:
   - charybdis_dongle
+  - charybdis_xiao_dongle
   - charybdis_left
   - charybdis_right
