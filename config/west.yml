@@ -7,8 +7,8 @@ manifest:
 
     - name: badjeff
       url-base: https://github.com/badjeff
-    - name: Cyboard-DigitalTailor
-      url-base: https://github.com/Cyboard-DigitalTailor
+    # - name: Cyboard-DigitalTailor
+    #   url-base: https://github.com/Cyboard-DigitalTailor
 
     - name: englmaxi
       url-base: https://github.com/englmaxi
@@ -21,12 +21,12 @@ manifest:
       revision: main
       import: app/west.yml
 
-    # - name: zmk-pmw3610-driver
-    #   remote: badjeff
-    #   revision: main
     - name: zmk-pmw3610-driver
-      remote: Cyboard-DigitalTailor
-      revision: startup_optimization
+      remote: badjeff
+      revision: main
+    # - name: zmk-pmw3610-driver
+    #   remote: Cyboard-DigitalTailor
+    #   revision: startup_optimization
 
     - name: zmk-helpers
       remote: urob
