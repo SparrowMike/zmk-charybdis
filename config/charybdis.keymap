@@ -276,6 +276,14 @@
             bindings = <&studio_unlock>;
             key-positions = <0 5>;
         };
+
+        bt_clr {
+            timeout-ms = <COMBO_TERM_FAST>;
+            require-prior-idle-ms = <COMBO_PRIOR_IDLE>;
+            key-positions = <4 5>;
+            bindings = <&bt BT_CLR>;
+            layers = <1>;
+        };
     };
 
     behaviors {
