@@ -9,10 +9,22 @@ include:
 
   - board: nice_nano_v2
     shield: charybdis_left
+    
+  - board: nice_nano_v2
+    shield: charybdis_left
+    cmake-args: -DCONFIG_CHARYBDIS_LEFT_TRACKBALL=y
+    artifact-name: charybdis_left_trackball-nice_nano_v2-zmk
+    
   - board: nice_nano_v2
     shield: charybdis_right
     # snippet: zmk-usb-logging
     # cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
+    
+  - board: nice_nano_v2
+    shield: charybdis_right
+    cmake-args: -DCONFIG_CHARYBDIS_RIGHT_CENTRAL=y
+    artifact-name: charybdis_right_central-nice_nano_v2-zmk
+
 
   - shield: settings_reset
     board: seeeduino_xiao_ble

@@ -1,4 +1,4 @@
-if SHIELD_CHARYBDIS_DONGLE || SHIELD_CHARYBDIS_XIAO_DONGLE
+if SHIELD_CHARYBDIS_DONGLE || SHIELD_CHARYBDIS_XIAO_DONGLE || CHARYBDIS_RIGHT_CENTRAL
 
 config ZMK_KEYBOARD_NAME
 	default "Charybdis"
@@ -24,3 +24,37 @@ config SSD1306
 endif # ZMK_DISPLAY
 
 endif
+
+if CHARYBDIS_LEFT_TRACKBALL || SHIELD_CHARYBDIS_RIGHT
+
+config SPI
+    default y
+
+config INPUT
+    default y
+
+config ZMK_POINTING
+    default y
+
+config PMW3610
+    default y
+
+config PMW3610_SWAP_XY
+    default y
+
+config PMW3610_INVERT_X
+    default y
+
+config PMW3610_INVERT_Y
+    default y
+
+config PMW3610_INIT_POWER_UP_EXTRA_DELAY_MS
+    default 3500
+
+config ZMK_IDLE_TIMEOUT
+    default 120000
+
+config ZMK_IDLE_SLEEP_TIMEOUT
+    default 1800000
+
+endif # CHARYBDIS_LEFT_TRACKBALL || SHIELD_CHARYBDIS_RIGHT

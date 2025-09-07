@@ -9,3 +9,16 @@ config SHIELD_CHARYBDIS_LEFT
 
 config SHIELD_CHARYBDIS_RIGHT
 	def_bool $(shields_list_contains,charybdis_right)
+
+config CHARYBDIS_LEFT_TRACKBALL
+	bool "Enable trackball on left side"
+	depends on SHIELD_CHARYBDIS_LEFT
+	help
+	  Enable trackball support on the left side of Charybdis keyboard
+
+config CHARYBDIS_RIGHT_CENTRAL
+	bool "Enable right side as central (no dongle needed)"
+	depends on SHIELD_CHARYBDIS_RIGHT
+	help
+	  Enable right side as central controller instead of peripheral.
+	  This eliminates the need for a separate dongle.

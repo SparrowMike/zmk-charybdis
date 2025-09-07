@@ -37,3 +37,11 @@
 &trackball_split {
     device = <&trackball>;
 };
+
+#if defined(CONFIG_CHARYBDIS_RIGHT_CENTRAL)
+
+&trackball_listener {
+    status = "okay";
+};
+
+#endif
