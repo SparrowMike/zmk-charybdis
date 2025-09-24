@@ -3,11 +3,11 @@
 #include "split_input.dtsi"
 
 &default_transform {
-	col-offset = <6>;
+	col-offset = <0>;
 };
 
 &five_column_transform {
-	col-offset = <5>;
+	col-offset = <0>;
 };
 
 &kscan0 {
@@ -34,6 +34,6 @@
     status = "okay";
 };
 
-&trackball_split {
+&trackball_central_listener {
     device = <&trackball>;
 };

@@ -1,5 +1,5 @@
 #include "charybdis.dtsi"
-#include "split_input_dual.dtsi"
+#include "split_input.dtsi"
 
 / {
     chosen {
@@ -15,11 +15,11 @@
     };
 };
 
-&trackball_listener_left {
+&trackball_listener {
     status = "okay";
 };
 
-&trackball_listener_right {
+&trackball_central_listener {
     status = "okay";
 };
 
