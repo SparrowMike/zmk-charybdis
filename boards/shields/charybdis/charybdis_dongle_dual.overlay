@@ -19,7 +19,7 @@
     status = "okay";
 };
 
-&trackball_central_listener {
+&trackball_left_listener {
     status = "okay";
 };
 

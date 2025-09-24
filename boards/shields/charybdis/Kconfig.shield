@@ -12,3 +12,9 @@ config SHIELD_CHARYBDIS_LEFT_DUAL
 
 config SHIELD_CHARYBDIS_RIGHT
 	def_bool $(shields_list_contains,charybdis_right)
+
+config SHIELD_CHARYBDIS_RIGHT_DUAL
+	def_bool $(shields_list_contains,charybdis_right_dual)
+
+config SHIELD_CHARYBDIS_DONGLE_DUAL
+	def_bool $(shields_list_contains,charybdis_dongle_dual)

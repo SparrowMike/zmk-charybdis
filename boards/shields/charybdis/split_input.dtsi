@@ -18,6 +18,11 @@
       compatible = "zmk,input-split";
       reg = <0>;
     };
+
+    trackball_left_split: trackball_left_split@1 {
+      compatible = "zmk,input-split";
+      reg = <1>;
+    };
   };
 
   trackball_listener: trackball_listener {
@@ -38,9 +43,10 @@
     };
   };
 
-  trackball_central_listener: trackball_central_listener {
+  trackball_left_listener: trackball_left_listener {
     compatible = "zmk,input-listener";
     status = "disabled";
+    device = <&trackball_left_split>;
 
     input-processors = <&zip_xy_scaler 4 5>;
 
