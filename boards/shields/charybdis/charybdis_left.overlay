@@ -1,6 +1,4 @@
 #include "charybdis.dtsi"
-#include "charybdis_3610.dtsi"
-#include "split_input.dtsi"
 
 &default_transform {
 	col-offset = <0>;
@@ -30,23 +28,17 @@
 		;
 };
 
+#if defined(CONFIG_CHARYBDIS_LEFT_TRACKBALL)
+
+#include "charybdis_3610.dtsi"
+#include "split_input.dtsi"
+
 &spi0 {
-    status = "disabled";
+    status = "okay";
 };
 
 &trackball_split {
     device = <&trackball>;
-    status = "disabled";
-};
-
-#if defined(CONFIG_CHARYBDIS_LEFT_TRACKBALL)
-
-&spi0 {
-    status = "okay";
-};
-
-&trackball_split {
-    status = "okay";
 };
 
 #endif

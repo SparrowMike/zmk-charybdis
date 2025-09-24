@@ -394,7 +394,7 @@
 };
 
 // Trackball listener configuration
-#if defined(SHIELD_CHARYBDIS_LEFT) || defined(SHIELD_CHARYBDIS_RIGHT)
+#if defined(CONFIG_CHARYBDIS_LEFT_TRACKBALL) || defined(CONFIG_CHARYBDIS_RIGHT_CENTRAL)
     &trackball_listener {
         status = "okay";
     };
