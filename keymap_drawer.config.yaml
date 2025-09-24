@@ -45,10 +45,13 @@ draw_config:
     }
     
     /* Layer-specific key colors using Gruvbox palette */
-    .key.layer-0 { fill: #3c3836; } /* Default layer - dark1 */
-    .key.layer-1 { fill: #fb4934; } /* Lower layer - bright red */
-    .key.layer-2 { fill: #458588; } /* Raise layer - bright blue */
-    .key.layer-3 { fill: #b16286; } /* Mouse layer - bright purple */
+    .key.layer-0 { fill: #3c3836; }
+    .key.layer-1 { fill: #fb4934; }
+    .key.layer-2 { fill: #cc241d; }
+    .key.layer-3 { fill: #b16286; }
+    .key.layer-4 { fill: #458588; }
+    .key.layer-5 { fill: #d79921; }
+    .key.layer-6 { fill: #689d6a; }
     
     /* Held keys */
     .held { 
@@ -115,4 +118,3 @@ draw_config:
 parse_config:
   preprocess: true
   zmk_combos: {}
-  zmk_additional_includes: ["zmk-helpers/include"]

@@ -9,7 +9,7 @@ include:
 
   - board: nice_nano_v2
     shield: charybdis_left
-    
+
   - board: nice_nano_v2
     shield: charybdis_left
     cmake-args: -DCONFIG_CHARYBDIS_LEFT_TRACKBALL=y
