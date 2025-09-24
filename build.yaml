@@ -7,28 +7,12 @@ include:
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
 
-  # Single trackball (right side only)
   - board: nice_nano_v2
     shield: charybdis_left
-    artifact-name: charybdis_left_single
   - board: nice_nano_v2
     shield: charybdis_right
-    artifact-name: charybdis_right_single
     # snippet: zmk-usb-logging
     # cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
-
-  # Dual trackball (left and right sides)
-  - board: nice_nano_v2
-    shield: charybdis_dongle_dual dongle_display
-    artifact-name: charybdis_dongle_dual
-    snippet: studio-rpc-usb-uart
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
-  - board: nice_nano_v2
-    shield: charybdis_left_trackball_dual
-    artifact-name: charybdis_left_dual
-  - board: nice_nano_v2
-    shield: charybdis_right_dual
-    artifact-name: charybdis_right_dual
 
   - shield: settings_reset
     board: seeeduino_xiao_ble

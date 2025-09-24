@@ -327,7 +327,7 @@
   &kp Q          &kp W         &kp E         &kp R          &kp T            &kp Y       &kp U            &kp I         &kp O         &kp P
   &hm_l LCTRL A  &hm_l LALT S  &hm_l LGUI D  &hm_l LSHFT F  &kp G            &kp H       &hm_r RSHFT J    &hm_r RGUI K  &hm_r RALT L  &hm_r RCTRL SEMI
   &kp Z          &kp X         &kp C         &kp V          &kp B            &kp N       &kp M            &kp COMMA     &kp DOT       &kp SLASH
-                               &mo 1         &mo 1          &lt 3 ENTER      &lt 3 SPACE &lt 2 BACKSPACE
+                               &mo 2         &mo 1          &lt 3 ENTER      &lt 3 SPACE &lt 2 BACKSPACE
             >;
         };
 
