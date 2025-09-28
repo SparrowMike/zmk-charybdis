@@ -118,4 +118,3 @@ draw_config:
 parse_config:
   preprocess: true
   zmk_combos: {}
-  raw_binding_map: true
