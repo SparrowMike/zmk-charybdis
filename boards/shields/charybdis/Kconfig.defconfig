@@ -1,4 +1,16 @@
-if SHIELD_CHARYBDIS_DONGLE || SHIELD_CHARYBDIS_XIAO_DONGLE
+config CHARYBDIS_ALL_DONGLES
+	def_bool SHIELD_CHARYBDIS_DONGLE || SHIELD_CHARYBDIS_DONGLE_DUAL
+
+config CHARYBDIS_ALL_HALVES
+	def_bool SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_LEFT_DUAL || SHIELD_CHARYBDIS_RIGHT || SHIELD_CHARYBDIS_RIGHT_DUAL
+
+config CHARYBDIS_TRACKBALL_VARIANTS
+	def_bool SHIELD_CHARYBDIS_LEFT_DUAL || SHIELD_CHARYBDIS_RIGHT || SHIELD_CHARYBDIS_RIGHT_DUAL
+
+config CHARYBDIS_ANY_VARIANT
+	def_bool CHARYBDIS_ALL_DONGLES || CHARYBDIS_ALL_HALVES
+
+if SHIELD_CHARYBDIS_DONGLE
 
 config ZMK_KEYBOARD_NAME
 	default "Charybdis"
@@ -8,19 +20,127 @@ config ZMK_SPLIT_ROLE_CENTRAL
 
 endif
 
-if SHIELD_CHARYBDIS_XIAO_DONGLE || SHIELD_CHARYBDIS_DONGLE || SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_RIGHT
+if SHIELD_CHARYBDIS_DONGLE_DUAL
+
+config ZMK_KEYBOARD_NAME
+	default "Charybdis Duo"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+	default y
+
+endif
+
+if CHARYBDIS_ANY_VARIANT
 
 config ZMK_SPLIT
 	default y
-	
-if ZMK_DISPLAY
 
+# Power management defaults for all variants
+config ZMK_IDLE_TIMEOUT
+	default 300000
+
+config ZMK_IDLE_SLEEP_TIMEOUT
+	default 1800000
+
+endif
+
+if CHARYBDIS_ALL_HALVES
+
+config INPUT
+	default y
+
+config ZMK_POINTING
+	default y
+
+endif
+
+if CHARYBDIS_TRACKBALL_VARIANTS
+
+config SPI
+	default y
+
+config PMW3610
+	default y
+
+config PMW3610_INIT_POWER_UP_EXTRA_DELAY_MS
+	default 3000
+
+config PMW3610_SWAP_XY
+	default y
+
+endif
+
+if CHARYBDIS_ALL_DONGLES
+
+# Bluetooth connection management
+# Allow up to 5 simultaneous BT connections (dongles handle multiple peripherals)
+config BT_MAX_CONN
+	default 5
+
+# Store pairing info for up to 5 devices for easy reconnection
+config BT_MAX_PAIRED
+	default 5
+
+# Configure dongle as central with 2 peripheral connections (left + right halves)
+config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+	default 2
+
+# Use higher TX power (+8dBm) for better range and reliability
+choice BT_CTLR_TX_PWR
+	default BT_CTLR_TX_PWR_PLUS_8
+endchoice
+
+# Bluetooth connection interval optimization
+# Lower intervals (6-12 * 1.25ms = 7.5-15ms) for better responsiveness
+config BT_PERIPHERAL_PREF_MIN_INT
+	default 6
+
+config BT_PERIPHERAL_PREF_MAX_INT
+	default 12
+
+# No connection latency for immediate response
+config BT_PERIPHERAL_PREF_LATENCY
+	default 0
+
+# Input and mouse functionality
+# Enable input subsystem for handling trackball and mouse events
+config INPUT
+	default y
+
+# Enable ZMK mouse support for trackball integration
+config ZMK_MOUSE
+	default y
+
+# Disable sleep mode - dongles should stay active as central hubs
+config ZMK_SLEEP
+	default n
+
+# OLED display support
+# Enable display for showing connection status, battery levels, etc.
+config ZMK_DISPLAY
+	default y
+
+# Disable battery service (dongles are typically USB powered)
+config BT_BAS
+	default n
+
+# Show macOS-style modifier keys on display
+config ZMK_DONGLE_DISPLAY_MAC_MODIFIERS
+	default y
+
+# Fetch and display battery levels from connected peripheral halves
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+	default y
+
+# Proxy battery levels to connected host devices
+config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+	default y
+
+# I2C and SSD1306 OLED driver support
 config I2C
-    default y
+	default y
 
 config SSD1306
-    default y
-
-endif # ZMK_DISPLAY
+	default y
 
 endif

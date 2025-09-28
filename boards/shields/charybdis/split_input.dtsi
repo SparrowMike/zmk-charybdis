@@ -18,12 +18,35 @@
       compatible = "zmk,input-split";
       reg = <0>;
     };
+
+    trackball_left_split: trackball_left_split@1 {
+      compatible = "zmk,input-split";
+      reg = <1>;
+    };
   };
 
   trackball_listener: trackball_listener {
     compatible = "zmk,input-listener";
     status = "disabled";
     device = <&trackball_split>;
+
+    input-processors = <&zip_xy_scaler 4 5>;
+
+    snipe {
+      layers = <SNIPE>;
+      input-processors = <&zip_xy_scaler 1 3>;
+    };
+
+    scroll {
+      layers = <SCROLL>;
+      input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 7>, <&zip_xy_to_scroll_mapper>;
+    };
+  };
+
+  trackball_left_listener: trackball_left_listener {
+    compatible = "zmk,input-listener";
+    status = "disabled";
+    device = <&trackball_left_split>;
 
     input-processors = <&zip_xy_scaler 4 5>;
 

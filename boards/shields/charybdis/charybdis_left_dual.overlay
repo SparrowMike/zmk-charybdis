@@ -3,16 +3,16 @@
 #include "split_input.dtsi"
 
 &default_transform {
-	col-offset = <6>;
+	col-offset = <0>;
 };
 
 &five_column_transform {
-	col-offset = <5>;
+	col-offset = <0>;
 };
 
 &kscan0 {
 	compatible = "zmk,kscan-gpio-matrix";
-	
+
 	col-gpios
 		= <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 		, <&pro_micro 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -35,9 +35,9 @@
 };
 
 &trackball_split {
-    device = <&trackball>;
+    status = "disabled";
 };
 
 &trackball_left_split {
-    status = "disabled";
+    device = <&trackball>;
 };
