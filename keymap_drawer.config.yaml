@@ -118,3 +118,5 @@ draw_config:
 parse_config:
   preprocess: true
   zmk_combos: {}
+
+layout_function: LAYOUT

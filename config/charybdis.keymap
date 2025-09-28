@@ -315,7 +315,7 @@
     };
 
     chosen {
-      zmk,physical-layout = &charybdis_5col_layout;
+        zmk,physical-layout = &charybdis_5col_layout;
     };
 
     keymap {
