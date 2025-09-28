@@ -4,7 +4,7 @@ on:
   workflow_dispatch:  # can be triggered manually
   push:               # automatically run on changes to following paths
     paths:
-      - "config/charybdis_drawer.keymap"
+      - "config/*.keymap"
       - "config/*.dtsi"
       - "keymap_drawer.config.yaml"
       # - 'boards/*/*/*.keymap'
@@ -22,10 +22,10 @@ jobs:
       contents: write  # allow workflow to commit to the repo
     with:
       install_branch: "main" # branch to install keymap-drawer from
-      keymap_patterns: "config/charybdis_drawer.keymap"        # path to the keymaps to parse
+      keymap_patterns: "config/*.keymap"        # path to the keymaps to parse
       config_path: "keymap_drawer.config.yaml"  # config file, ignored if not exists
       output_folder: "keymap-drawer"            # path to save produced SVG and keymap YAML files
-      draw_args: "charybdis_drawer:'-k bastardkb/charybdis/3x5'"
+      draw_args: "charybdis:'-k bastardkb/charybdis/3x5'"
       parse_args: ""
       # commit_message: "Draw: ${{ github.event.head_commit.message }}"
       amend_commit: true # whether to amend the commit or create a new one
