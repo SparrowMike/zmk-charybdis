@@ -314,9 +314,6 @@
         };
     };
 
-    chosen {
-      zmk,physical-layout = &charybdis_5col_layout;
-    };
 
     keymap {
         compatible = "zmk,keymap";

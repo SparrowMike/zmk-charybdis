@@ -1,0 +1,120 @@
+draw_config:
+  key_w: 80.0
+  key_h: 75.0
+  split_gap: 30.0
+  combo_w: 28.0
+  combo_h: 26.0
+  key_rx: 6.0
+  key_ry: 6.0
+  n_columns: 1
+  dark_mode: true
+  separate_combo_diagrams: true
+  svg_extra_style: |
+    /* Gruvbox Dark Theme for Corne keymap - Portrait orientation */
+    
+    /* Background and main container */
+    svg { 
+      background-color: #1d2021; 
+    }
+    
+    /* Default key styling */
+    .key { 
+      fill: #3c3836; 
+      stroke: #504945; 
+      stroke-width: 1; 
+    }
+    
+    /* Key text styling - FIXED */
+    .key .tap, .key .hold, .key .shifted { 
+      fill: #ffffff; 
+      font-family: 'Fira Code', 'JetBrains Mono', monospace;
+      text-rendering: geometricPrecision;
+      shape-rendering: crispEdges;
+      stroke: none !important;
+      stroke-width: 0;
+      paint-order: normal;
+      filter: none;
+      -webkit-font-smoothing: antialiased;
+    }
+    
+    /* Remove any text shadows globally */
+    text {
+      text-shadow: none;
+      stroke: none;
+      stroke-width: 0;
+    }
+    
+    /* Layer-specific key colors using Gruvbox palette */
+    .key.layer-0 { fill: #3c3836; }
+    .key.layer-1 { fill: #fb4934; }
+    .key.layer-2 { fill: #cc241d; }
+    .key.layer-3 { fill: #b16286; }
+    .key.layer-4 { fill: #458588; }
+    .key.layer-5 { fill: #d79921; }
+    .key.layer-6 { fill: #689d6a; }
+    
+    /* Held keys */
+    .held { 
+      fill: #d79921; 
+      stroke: #fabd2f; 
+      stroke-width: 2; 
+    }
+    
+    /* Ghost/transparent keys */
+    .ghost { 
+      fill: #282828; 
+      stroke: #665c54; 
+      stroke-width: 1; 
+      opacity: 0.6; 
+    }
+    
+    /* Combo styling */
+    .combo { 
+      fill: #689d6a; 
+      stroke: #8ec07c; 
+      stroke-width: 1; 
+      font-size: 11px; 
+    }
+    .combo .label { 
+      fill: #1d2021; 
+      font-weight: bold;
+      stroke: none;
+      stroke-width: 0;
+    }
+    
+    /* Layer labels and headers */
+    .layer-header { 
+      fill: #ffffff; 
+      font-size: 16px; 
+      font-weight: bold;
+      stroke: none;
+      stroke-width: 0;
+    }
+    
+    /* Special key types - tweaked colors */
+    .mod { fill: #689d6a; } /* Modifier keys - changed to aqua to differentiate from held */
+    .trans { fill: #928374; opacity: 0.5; } /* Transparent keys - reduced opacity */
+    .none { fill: #282828; opacity: 0.3; } /* Empty keys */
+    
+    /* Improve text contrast */
+    .key.layer-1 .tap, .key.layer-1 .hold { 
+      fill: #ffffff;
+      stroke: none;
+    }
+    .key.layer-2 .tap, .key.layer-2 .hold { 
+      fill: #ffffff;
+      stroke: none;
+    }
+    .key.layer-3 .tap, .key.layer-3 .hold { 
+      fill: #ffffff;
+      stroke: none;
+    }
+    .held .tap, .held .hold { 
+      fill: #1d2021; 
+      font-weight: bold;
+      stroke: none;
+    }
+    
+parse_config:
+  preprocess: true
+  zmk_combos: {}

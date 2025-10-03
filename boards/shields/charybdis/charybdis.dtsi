@@ -4,7 +4,7 @@
 / {
     chosen {
         zmk,kscan = &kscan0;
-        zmk,physical-layout = &charybdis_6col_layout;
+        zmk,physical-layout = &charybdis_5col_layout;
     };
 
     default_transform: keymap_transform_0 {
