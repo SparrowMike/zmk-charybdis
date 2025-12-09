@@ -1,5 +1,5 @@
 config CHARYBDIS_ALL_DONGLES
-	def_bool SHIELD_CHARYBDIS_DONGLE || SHIELD_CHARYBDIS_DONGLE_DUAL
+	def_bool SHIELD_CHARYBDIS_DONGLE || SHIELD_CHARYBDIS_DONGLE_DUAL || SHIELD_CHARYBDIS_DONGLE_PROSPECTOR || SHIELD_CHARYBDIS_DONGLE_DUAL_PROSPECTOR
 
 config CHARYBDIS_ALL_HALVES
 	def_bool SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_LEFT_DUAL || SHIELD_CHARYBDIS_RIGHT || SHIELD_CHARYBDIS_RIGHT_DUAL
@@ -30,12 +30,39 @@ config ZMK_SPLIT_ROLE_CENTRAL
 
 endif
 
+if SHIELD_CHARYBDIS_DONGLE_PROSPECTOR || SHIELD_CHARYBDIS_DONGLE_DUAL_PROSPECTOR
+
+config ZMK_KEYBOARD_NAME
+	default "Charybdis Pro"
+
+config ZMK_SPLIT_ROLE_CENTRAL
+	default y
+
+config PROSPECTOR_USE_AMBIENT_LIGHT_SENSOR
+	default n
+
+config PROSPECTOR_FIXED_BRIGHTNESS
+	default 10
+
+config PROSPECTOR_DISPLAY_SLEEP_ENABLE
+	default y
+
+config PROSPECTOR_DISPLAY_IDLE_TIMEOUT_MS
+	default 30000
+
+config PROSPECTOR_DISPLAY_SLEEP_USE_PM
+	default y
+
+config PM_DEVICE
+	default y
+
+endif
+
 if CHARYBDIS_ANY_VARIANT
 
 config ZMK_SPLIT
 	default y
 
-# Power management defaults for all variants
 config ZMK_IDLE_TIMEOUT
 	default 300000
 
@@ -116,7 +143,6 @@ config ZMK_SLEEP
 	default n
 
 # OLED display support
-# Enable display for showing connection status, battery levels, etc.
 config ZMK_DISPLAY
 	default y
 
@@ -136,7 +162,11 @@ config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
 config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
 	default y
 
-# I2C and SSD1306 OLED driver support
+endif
+
+# I2C and SSD1306 OLED driver support for OLED-based dongles only
+if SHIELD_CHARYBDIS_DONGLE || SHIELD_CHARYBDIS_DONGLE_DUAL
+
 config I2C
 	default y
 

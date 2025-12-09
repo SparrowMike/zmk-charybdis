@@ -12,6 +12,10 @@ manifest:
 
     - name: englmaxi
       url-base: https://github.com/englmaxi
+    - name: carrefinho
+      url-base: https://github.com/carrefinho
+    - name: not-in-stock
+      url-base: https://github.com/not-in-stock
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
 
@@ -33,6 +37,9 @@ manifest:
       revision: main
     - name: zmk-dongle-display
       remote: englmaxi
+      revision: main
+    - name: prospector-zmk-module
+      remote: not-in-stock
       revision: main
 
   self:
