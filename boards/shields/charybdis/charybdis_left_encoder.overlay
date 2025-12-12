@@ -1,25 +1,5 @@
 #include "charybdis.dtsi"
-
-/ {
-    chosen {
-        zmk,kscan = &kscan0;
-        zmk,physical-layout = &charybdis_5col_layout;
-    };
-
-    left_encoder: encoder_left {
-        compatible = "alps,ec11";
-        a-gpios = <&gpio0 6 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        steps = <80>;
-        status = "okay";
-    };
-
-    sensors: sensors {
-        compatible = "zmk,keymap-sensors";
-        sensors = <&left_encoder>;
-        triggers-per-rotation = <20>;
-    };
-};
+#include "charybdis_ec11.dtsi"
 
 &kscan0 {
     compatible = "zmk,kscan-gpio-matrix";

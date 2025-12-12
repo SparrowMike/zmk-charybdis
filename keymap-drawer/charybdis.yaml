@@ -31,7 +31,7 @@ layers:
   - ','
   - .
   - /
-  - NUMS
+  - MUTE
   - NUMS
   - {t: ENTER, h: MOUSE}
   - {t: SPACE, h: MOUSE}
@@ -67,8 +67,8 @@ layers:
   - '~'
   - '|'
   - \
+  - PLAY PAUSE
   - {type: held}
-  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -103,7 +103,7 @@ layers:
   - VOLUME UP
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - MUTE
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}

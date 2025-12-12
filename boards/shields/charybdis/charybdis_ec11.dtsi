@@ -1,0 +1,19 @@
+/ {
+    encoder: encoder {
+        compatible = "alps,ec11";
+        a-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        steps = <80>;  // Standard EC11: 20 detents, 4 pulses per detent = 80 steps
+        status = "okay";
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&encoder>;
+        triggers-per-rotation = <20>;  // Trigger behavior 20 times per full rotation (once per detent)
+    };
+};
+
+&spi0 {  // Disable SPI bus since encoder uses GPIO pins
+    status = "disabled";
+};
