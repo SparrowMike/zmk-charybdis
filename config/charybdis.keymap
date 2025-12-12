@@ -326,6 +326,7 @@
   &kp Z          &kp X         &kp C         &kp V          &kp B            &kp N       &kp M            &kp COMMA     &kp DOT       &kp SLASH
                                &mo 1         &mo 1          &lt 3 ENTER      &lt 3 SPACE &lt 2 BACKSPACE
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         NUMS {
@@ -336,6 +337,7 @@
   &kp NUMBER_6  &kp NUMBER_7  &kp NUMBER_8  &kp N9        &kp NUMBER_0    &kp UNDER  &kp PLUS   &kp TILDE  &kp PIPE          &kp BACKSLASH
                               &trans        &trans        &trans          &trans     &trans
             >;
+            sensor-bindings = <&inc_dec_kp LC(Z) LC(LS(Z))>;
         };
 
         DANGER {
@@ -346,6 +348,7 @@
   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2    &bt BT_SEL 3  &bt BT_SEL 4        &trans    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP  &trans     &trans
                               &trans          &trans        &trans              &trans    &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_BRI_UP C_BRI_DN>;
         };
 
         MOUSE {
@@ -356,6 +359,7 @@
                 &trans  &trans    &mo 4     &mo 5     &trans      &trans  &mo 4     &mo 5     &trans    &trans
                                   &trans    &trans    &trans      &trans  &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         SCROLL {
@@ -366,6 +370,7 @@
                 &trans  &trans  &trans  &trans    &trans    &trans  &trans  &trans  &trans  &trans
                                 &trans  &trans    &trans    &trans  &trans
             >;
+            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
         };
 
         SNIPE {
@@ -376,6 +381,7 @@
                 &trans  &trans  &trans  &trans    &trans    &trans  &trans  &trans  &trans  &trans
                                 &trans  &trans    &trans    &trans  &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
 
         AUTO {
@@ -386,6 +392,7 @@
                 &trans  &trans  &trans  &trans    &trans    &trans  &trans  &trans  &trans  &trans
                                 &trans  &trans    &trans    &trans  &trans
             >;
+            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
         };
     };
 };
