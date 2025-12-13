@@ -38,20 +38,20 @@ config ZMK_KEYBOARD_NAME
 config ZMK_SPLIT_ROLE_CENTRAL
 	default y
 
-config PROSPECTOR_USE_AMBIENT_LIGHT_SENSOR
-	default n
-
-config PROSPECTOR_FIXED_BRIGHTNESS
-	default 10
-
-config PROSPECTOR_DISPLAY_SLEEP_ENABLE
-	default y
-
-config PROSPECTOR_DISPLAY_IDLE_TIMEOUT_MS
-	default 30000
-
-config PROSPECTOR_DISPLAY_SLEEP_USE_PM
-	default y
+# config PROSPECTOR_USE_AMBIENT_LIGHT_SENSOR
+# 	default n
+#
+# config PROSPECTOR_FIXED_BRIGHTNESS
+# 	default 10
+#
+# config PROSPECTOR_DISPLAY_SLEEP_ENABLE
+# 	default y
+#
+# config PROSPECTOR_DISPLAY_IDLE_TIMEOUT_MS
+# 	default 30000
+#
+# config PROSPECTOR_DISPLAY_SLEEP_USE_PM
+# 	default y
 
 config PM_DEVICE
 	default y
@@ -86,14 +86,11 @@ if CHARYBDIS_TRACKBALL_VARIANTS
 config SPI
 	default y
 
-config PMW3610
+config PMW3610_ALT
 	default y
 
-config PMW3610_INIT_POWER_UP_EXTRA_DELAY_MS
+config PMW3610_ALT_INIT_POWER_UP_EXTRA_DELAY_MS
 	default 3000
-
-config PMW3610_SWAP_XY
-	default y
 
 endif
 

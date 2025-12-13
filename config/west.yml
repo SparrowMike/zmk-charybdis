@@ -10,24 +10,28 @@ manifest:
     # - name: Cyboard-DigitalTailor
     #   url-base: https://github.com/Cyboard-DigitalTailor
 
-    - name: englmaxi
-      url-base: https://github.com/englmaxi
-    - name: carrefinho
-      url-base: https://github.com/carrefinho
-    - name: not-in-stock
-      url-base: https://github.com/not-in-stock
+    # - name: englmaxi
+    #   url-base: https://github.com/englmaxi
+    - name: choovick
+      url-base: https://github.com/choovick
+
+    # - name: carrefinho
+    #   url-base: https://github.com/carrefinho
+    # - name: not-in-stock
+    #   url-base: https://github.com/not-in-stock
+
     # Additional modules containing boards/shields/custom code can be listed here as well
     # See https://docs.zephyrproject.org/3.2.0/develop/west/manifest.html#projects
 
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3-branch
+      revision: main
       import: app/west.yml
 
     - name: zmk-pmw3610-driver
       remote: badjeff
-      revision: zmk-0.3
+      revision: main
     # - name: zmk-pmw3610-driver
     #   remote: Cyboard-DigitalTailor
     #   revision: startup_optimization
@@ -36,11 +40,13 @@ manifest:
       remote: urob
       revision: main
     - name: zmk-dongle-display
-      remote: englmaxi
-      revision: main
-    - name: prospector-zmk-module
-      remote: not-in-stock
-      revision: main
+      # remote: englmaxi
+      # revision: main
+      remote: choovick
+      revision: zephyr-4-1
+    # - name: prospector-zmk-module
+    #   remote: carrefinho # not-in-stock
+    #   revision: core/zephyr-4-1 # main
 
   self:
     path: config
