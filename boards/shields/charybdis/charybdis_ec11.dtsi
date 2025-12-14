@@ -1,13 +1,13 @@
 / {
     encoder: encoder {
         compatible = "alps,ec11";
-        a-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
-        b-gpios = <&gpio0 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;
+        a-gpios = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // D1 (TX0)
+        b-gpios = <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // D0 (RX1)
         steps = <80>;  // Standard EC11: 20 detents, 4 pulses per detent = 80 steps
         status = "okay";
     };
 
-    sensors: sensors {
+    sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder>;
         triggers-per-rotation = <20>;  // Trigger behavior 20 times per full rotation (once per detent)
