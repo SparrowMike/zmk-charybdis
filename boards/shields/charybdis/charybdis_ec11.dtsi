@@ -1,19 +1,26 @@
 / {
     encoder: encoder {
         compatible = "alps,ec11";
-        a-gpios = <&pro_micro 1 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // D1 (TX0)
-        b-gpios = <&pro_micro 0 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>;  // D0 (RX1)
-        steps = <80>;  // Standard EC11: 20 detents, 4 pulses per detent = 80 steps
+
+        a-gpios = <&pro_micro 2 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // D2 = P0.17
+        b-gpios = <&pro_micro 3 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // D3 = P0.20
+        steps = <20>;
         status = "okay";
     };
 
-    sensors {
+    kscan_direct: kscan_direct {
+        compatible = "zmk,kscan-gpio-direct";
+        input-gpios = <&pro_micro 16 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // D16 = P0.10
+    };
+
+    sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder>;
-        triggers-per-rotation = <20>;  // Trigger behavior 20 times per full rotation (once per detent)
+        triggers-per-rotation = <20>;
     };
 };
 
-&spi0 {  // Disable SPI bus since encoder uses GPIO pins
-    status = "disabled";
-};
+&spi0 { status = "disabled"; };
+&spi1 { status = "disabled"; };
+&spi2 { status = "disabled"; };
+&spi3 { status = "disabled"; };
