@@ -16,11 +16,6 @@
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder>;
-        triggers-per-rotation = <20>;
+        triggers-per-rotation = <10>;
     };
 };
-
-// &spi0 { status = "disabled"; };
-// &spi1 { status = "disabled"; };
-// &spi2 { status = "disabled"; };
-// &spi3 { status = "disabled"; };

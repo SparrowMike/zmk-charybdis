@@ -45,19 +45,3 @@
         , <&pro_micro 9  GPIO_ACTIVE_HIGH>
         ;
 };
-
-// &spi0 {
-//     status = "disabled";
-// };
-//
-// &spi1 {
-//     status = "disabled";
-// };
-//
-// &spi2 {
-//     status = "disabled";
-// };
-//
-// &spi3 {
-//     status = "disabled";
-// };
