@@ -376,9 +376,8 @@ text {
 </a></g>
 <g transform="translate(417, 292) rotate(10.0)" class="key keypos-31">
 <rect rx="6" ry="6" x="-36" y="-36" width="71" height="71" class="key"/>
-<a href="#NUMS">
-<text x="0" y="0" class="key tap layer-activator">NUMS</text>
-</a></g>
+<text x="0" y="0" class="key tap">MUTE</text>
+</g>
 <g transform="translate(494, 313) rotate(20.0)" class="key keypos-32">
 <rect rx="6" ry="6" x="-36" y="-36" width="71" height="71" class="key"/>
 <text x="0" y="0" class="key tap">ENTER</text>
@@ -525,9 +524,11 @@ text {
 <g transform="translate(338, 285)" class="key held keypos-30">
 <rect rx="6" ry="6" x="-36" y="-36" width="71" height="71" class="key held"/>
 </g>
-<g transform="translate(417, 292) rotate(10.0)" class="key trans keypos-31">
-<rect rx="6" ry="6" x="-36" y="-36" width="71" height="71" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(417, 292) rotate(10.0)" class="key keypos-31">
+<rect rx="6" ry="6" x="-36" y="-36" width="71" height="71" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">PLAY</tspan><tspan x="0" dy="1.2em">PAUSE</tspan>
+</text>
 </g>
 <g transform="translate(494, 313) rotate(20.0)" class="key trans keypos-32">
 <rect rx="6" ry="6" x="-36" y="-36" width="71" height="71" class="key trans"/>
@@ -683,9 +684,11 @@ text {
 <rect rx="6" ry="6" x="-36" y="-36" width="71" height="71" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(417, 292) rotate(10.0)" class="key trans keypos-31">
-<rect rx="6" ry="6" x="-36" y="-36" width="71" height="71" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(417, 292) rotate(10.0)" class="key keypos-31">
+<rect rx="6" ry="6" x="-36" y="-36" width="71" height="71" class="key"/>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em">PLAY</tspan><tspan x="0" dy="1.2em">PAUSE</tspan>
+</text>
 </g>
 <g transform="translate(494, 313) rotate(20.0)" class="key trans keypos-32">
 <rect rx="6" ry="6" x="-36" y="-36" width="71" height="71" class="key trans"/>

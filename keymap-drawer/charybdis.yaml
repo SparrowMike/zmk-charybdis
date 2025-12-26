@@ -32,7 +32,7 @@ layers:
   - .
   - /
   - NUMS
-  - NUMS
+  - MUTE
   - {t: ENTER, h: MOUSE}
   - {t: SPACE, h: MOUSE}
   - {t: BACKSPACE, h: DANGER}
@@ -68,7 +68,7 @@ layers:
   - '|'
   - \
   - {type: held}
-  - {t: ▽, type: trans}
+  - PLAY PAUSE
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -104,7 +104,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - PLAY PAUSE
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: held}
