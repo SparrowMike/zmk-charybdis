@@ -1,0 +1,21 @@
+/ {
+    encoder: encoder {
+        compatible = "alps,ec11";
+
+        a-gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // P0.17 (D2 on board)
+        b-gpios = <&gpio0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)>; // P0.20 (D3 on board)
+        steps = <20>;
+        status = "okay";
+    };
+
+    kscan_direct: kscan_direct {
+        compatible = "zmk,kscan-gpio-direct";
+        input-gpios = <&gpio0 10 (GPIO_ACTIVE_LOW | GPIO_PULL_UP)>; // P0.10 (D16 on board)
+    };
+
+    sensors: sensors {
+        compatible = "zmk,keymap-sensors";
+        sensors = <&encoder>;
+        triggers-per-rotation = <10>;
+    };
+};

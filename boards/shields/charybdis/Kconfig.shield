@@ -10,6 +10,9 @@ config SHIELD_CHARYBDIS_LEFT
 config SHIELD_CHARYBDIS_LEFT_DUAL
 	def_bool $(shields_list_contains,charybdis_left_dual)
 
+config SHIELD_CHARYBDIS_LEFT_ENCODER
+	def_bool $(shields_list_contains,charybdis_left_encoder)
+
 config SHIELD_CHARYBDIS_RIGHT
 	def_bool $(shields_list_contains,charybdis_right)
 
