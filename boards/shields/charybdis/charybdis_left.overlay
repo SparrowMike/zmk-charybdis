@@ -19,3 +19,28 @@
 		, <&pro_micro 9 GPIO_ACTIVE_HIGH>
 		;
 };
+
+// INFO: uncomment for dual trackball
+// NOTE: Dual trackball uses right-side PCB pattern with swapped switches.
+// You MUST also select the swapped transform by adding this to your overlay:
+//
+// &default_phy_layout {
+//     transform = <&five_column_transform_swapped>;
+// };
+//
+// Or add to the chosen node:
+// chosen {
+//     zmk,matrix-transform = &five_column_transform_swapped;
+// };
+//
+// &spi0 {
+//     status = "okay";
+// };
+//
+// &trackball_split {
+//     status = "disabled";
+// };
+//
+// &trackball_left_split {
+//     device = <&trackball>;
+// };

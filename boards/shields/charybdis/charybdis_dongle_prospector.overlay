@@ -5,7 +5,7 @@
 / {
     chosen {
         zmk,kscan = &mock_kscan;
-        zmk,sensors = &sensors;
+        zmk,sensors = &sensors; // INFO: needed for the encoder
     };
 
     mock_kscan: kscan_1 {
@@ -19,3 +19,8 @@
 &trackball_listener {
     status = "okay";
 };
+
+// INFO: uncomment for dual trackball
+// &trackball_left_listener {
+//     status = "okay";
+// };

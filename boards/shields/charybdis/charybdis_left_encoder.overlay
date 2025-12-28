@@ -1,29 +1,6 @@
 #include "charybdis.dtsi"
 #include "charybdis_ec11.dtsi"
 
-/ {
-    chosen {
-        zmk,kscan = &kscan_composite;
-        zmk,sensors = &sensors;
-    };
-
-    kscan_composite: kscan_composite {
-        compatible = "zmk,kscan-composite";
-        rows = <4>;
-        columns = <6>;
-
-        matrix {
-            kscan = <&kscan0>;
-        };
-
-        direct {
-            kscan = <&kscan_direct>;
-            row-offset = <3>;
-            col-offset = <4>;
-        };
-    };
-};
-
 &kscan0 {
     compatible = "zmk,kscan-gpio-matrix";
     diode-direction = "row2col";
@@ -44,4 +21,28 @@
         , <&pro_micro 4  GPIO_ACTIVE_HIGH>
         , <&pro_micro 9  GPIO_ACTIVE_HIGH>
         ;
+};
+
+/ {
+    chosen {
+        zmk,kscan = &kscan_composite;
+        zmk,sensors = &sensors;
+        zmk,matrix-transform = &five_column_transform_swapped;
+    };
+
+    kscan_composite: kscan_composite {
+        compatible = "zmk,kscan-composite";
+        rows = <4>;
+        columns = <6>;
+
+        matrix {
+            kscan = <&kscan0>;
+        };
+
+        direct {
+            kscan = <&kscan_direct>;
+            row-offset = <3>;
+            col-offset = <4>;
+        };
+    };
 };
