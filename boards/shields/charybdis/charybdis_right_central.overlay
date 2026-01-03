@@ -2,6 +2,25 @@
 #include "charybdis_3610.dtsi"
 #include "split_input.dtsi"
 
+/ {
+	trackball_listener_local: trackball_listener_local {
+		compatible = "zmk,input-listener";
+		device = <&trackball>;
+
+		input-processors = <&zip_xy_scaler 4 5>;
+
+		snipe {
+			layers = <SNIPE>;
+			input-processors = <&zip_xy_scaler 1 3>;
+		};
+
+		scroll {
+			layers = <SCROLL>;
+			input-processors = <&zip_xy_transform (INPUT_TRANSFORM_Y_INVERT)>, <&zip_xy_scaler 1 7>, <&zip_xy_to_scroll_mapper>;
+		};
+	};
+};
+
 &default_transform {
 	col-offset = <6>;
 };
@@ -34,12 +53,9 @@
     status = "okay";
 };
 
+// Disable split listeners - we're using local trackball
 &trackball_listener {
-    status = "okay";
-};
-
-&trackball_split {
-    device = <&trackball>;
+    status = "disabled";
 };
 
 &trackball_left_split {
