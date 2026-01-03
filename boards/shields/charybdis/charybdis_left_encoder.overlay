@@ -46,3 +46,11 @@
         };
     };
 };
+
+&encoder {
+    status = "okay";
+};
+
+&kscan_direct {
+    status = "okay";
+};

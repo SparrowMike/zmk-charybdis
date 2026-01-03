@@ -17,6 +17,9 @@ include:
     # cmake-args: -DCONFIG_ZMK_USB_LOGGING=y
 
   - board: nice_nano_v2
+    shield: charybdis_right_central
+
+  - board: nice_nano_v2
     shield: charybdis_left_encoder
 
   - board: nice_nano_v2

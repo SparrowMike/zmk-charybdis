@@ -1,165 +1,134 @@
 config CHARYBDIS_ALL_DONGLES
-	def_bool SHIELD_CHARYBDIS_DONGLE || SHIELD_CHARYBDIS_DONGLE_PROSPECTOR
+  def_bool SHIELD_CHARYBDIS_DONGLE || SHIELD_CHARYBDIS_DONGLE_PROSPECTOR
+
+config CHARYBDIS_ALL_CENTRALS
+  def_bool CHARYBDIS_ALL_DONGLES || SHIELD_CHARYBDIS_RIGHT_CENTRAL
 
 config CHARYBDIS_ALL_HALVES
-	def_bool SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_LEFT_ENCODER || SHIELD_CHARYBDIS_RIGHT
+  def_bool SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_LEFT_ENCODER || SHIELD_CHARYBDIS_RIGHT
 
 config CHARYBDIS_TRACKBALL_VARIANTS
-	def_bool SHIELD_CHARYBDIS_RIGHT
+  def_bool SHIELD_CHARYBDIS_RIGHT || SHIELD_CHARYBDIS_RIGHT_CENTRAL
 
 config CHARYBDIS_NON_TRACKBALL_HALVES
-	def_bool SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_LEFT_ENCODER
+  def_bool SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_LEFT_ENCODER
 
 config CHARYBDIS_ANY_VARIANT
-	def_bool CHARYBDIS_ALL_DONGLES || CHARYBDIS_ALL_HALVES
-
-if SHIELD_CHARYBDIS_DONGLE
-
-config ZMK_KEYBOARD_NAME
-	default "Charybdis"
-
-config ZMK_SPLIT_ROLE_CENTRAL
-	default y
-
-endif
-
-if SHIELD_CHARYBDIS_DONGLE_PROSPECTOR
-
-config ZMK_KEYBOARD_NAME
-	default "Charybdis Pro"
-
-config ZMK_SPLIT_ROLE_CENTRAL
-	default y
-
-config PROSPECTOR_USE_AMBIENT_LIGHT_SENSOR
-	default n
-
-config PROSPECTOR_FIXED_BRIGHTNESS
-	default 10
-
-config PROSPECTOR_DISPLAY_SLEEP_ENABLE
-	default y
-
-config PROSPECTOR_DISPLAY_IDLE_TIMEOUT_MS
-	default 30000
-
-config PROSPECTOR_DISPLAY_SLEEP_USE_PM
-	default y
-
-config PM_DEVICE
-	default y
-
-endif
+  def_bool CHARYBDIS_ALL_DONGLES || CHARYBDIS_ALL_HALVES || SHIELD_CHARYBDIS_RIGHT_CENTRAL
 
 if CHARYBDIS_ANY_VARIANT
-
-config ZMK_SPLIT
-	default y
-
-config ZMK_IDLE_TIMEOUT
-	default 300000
-
-config ZMK_IDLE_SLEEP_TIMEOUT
-	default 1800000
-
+  config ZMK_SPLIT
+    default y
+  config ZMK_IDLE_TIMEOUT
+    default 300000
+  config ZMK_IDLE_SLEEP_TIMEOUT
+    default 1800000
 endif
 
 if CHARYBDIS_TRACKBALL_VARIANTS
-
-config INPUT
-	default y
-
-config ZMK_POINTING
-	default y
-
-config SPI
-	default y
-
-config PMW3610
-	default y
-
-config PMW3610_INIT_POWER_UP_EXTRA_DELAY_MS
-	default 3000
-
-config PMW3610_SWAP_XY
-	default y
-
+  config INPUT
+    default y
+  config ZMK_POINTING
+    default y
+  config SPI
+    default y
+  config PMW3610
+    default y
+  config PMW3610_INIT_POWER_UP_EXTRA_DELAY_MS
+    default 3000
+  config PMW3610_SWAP_XY
+    default y
 endif
 
 if CHARYBDIS_ALL_DONGLES
-
 # Bluetooth connection management
 # Allow up to 5 simultaneous BT connections (dongles handle multiple peripherals)
-config BT_MAX_CONN
-	default 5
-
+  config BT_MAX_CONN
+    default 5
 # Store pairing info for up to 5 devices for easy reconnection
-config BT_MAX_PAIRED
-	default 5
-
+  config BT_MAX_PAIRED
+    default 5
 # Configure dongle as central with 2 peripheral connections (left + right halves)
-config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
-	default 2
-
-# Use higher TX power (+8dBm) for better range and reliability
-choice BT_CTLR_TX_PWR
-	default BT_CTLR_TX_PWR_PLUS_8
-endchoice
-
-# Bluetooth connection interval optimization
-# Lower intervals (6-12 * 1.25ms = 7.5-15ms) for better responsiveness
-config BT_PERIPHERAL_PREF_MIN_INT
-	default 6
-
-config BT_PERIPHERAL_PREF_MAX_INT
-	default 12
-
-# No connection latency for immediate response
-config BT_PERIPHERAL_PREF_LATENCY
-	default 0
-
-# Input and mouse functionality
-# Enable input subsystem for handling trackball and mouse events
-config INPUT
-	default y
-
-# Enable ZMK mouse support for trackball integration
-config ZMK_MOUSE
-	default y
-
+  config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 2
 # Disable sleep mode - dongles should stay active as central hubs
-config ZMK_SLEEP
-	default n
-
+  config ZMK_SLEEP
+    default n
 # OLED display support
-config ZMK_DISPLAY
-	default y
-
+  config ZMK_DISPLAY
+    default y
 # Disable battery service (dongles are typically USB powered)
-config BT_BAS
-	default n
-
+  config BT_BAS
+    default n
 # Show macOS-style modifier keys on display
-config ZMK_DONGLE_DISPLAY_MAC_MODIFIERS
-	default y
-
-# Fetch and display battery levels from connected peripheral halves
-config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
-	default y
-
-# Proxy battery levels to connected host devices
-config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
-	default y
-
+  config ZMK_DONGLE_DISPLAY_MAC_MODIFIERS
+    default y
 endif
 
-# I2C and SSD1306 OLED driver support for OLED-based dongles only
 if SHIELD_CHARYBDIS_DONGLE
+  config ZMK_KEYBOARD_NAME
+    default "Charybdis"
+# I2C and SSD1306 OLED driver support for OLED-based dongles only
+  config I2C
+    default y
+  config SSD1306
+    default y
+endif
 
-config I2C
-	default y
+if SHIELD_CHARYBDIS_DONGLE_PROSPECTOR
+  config ZMK_KEYBOARD_NAME
+    default "Charybdis Pro"
+  config PROSPECTOR_USE_AMBIENT_LIGHT_SENSOR
+    default n
+  config PROSPECTOR_FIXED_BRIGHTNESS
+    default 10
+  config PROSPECTOR_DISPLAY_SLEEP_ENABLE
+    default y
+  config PROSPECTOR_DISPLAY_IDLE_TIMEOUT_MS
+    default 30000
+  config PROSPECTOR_DISPLAY_SLEEP_USE_PM
+    default y
+  config PM_DEVICE
+    default y
+endif
 
-config SSD1306
-	default y
+if CHARYBDIS_ALL_CENTRALS
+  config ZMK_SPLIT_ROLE_CENTRAL
+    default y
+# Use higher TX power (+8dBm) for better range and reliability
+  choice BT_CTLR_TX_PWR
+    default BT_CTLR_TX_PWR_PLUS_8
+  endchoice
+# Bluetooth connection interval optimization
+# Lower intervals (6-12 * 1.25ms = 7.5-15ms) for better responsiveness
+  config BT_PERIPHERAL_PREF_MIN_INT
+    default 6
+  config BT_PERIPHERAL_PREF_MAX_INT
+    default 12
+# No connection latency for immediate response
+  config BT_PERIPHERAL_PREF_LATENCY
+    default 0
+# Enable input subsystem for handling trackball and mouse events
+  config INPUT
+    default y
+# Enable ZMK mouse support for trackball integration
+  config ZMK_MOUSE
+    default y
+# Fetch and display battery levels from connected peripheral halves
+  config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+    default y
+# Proxy battery levels to connected host devices
+  config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_PROXY
+    default y
+endif
 
+if SHIELD_CHARYBDIS_RIGHT_CENTRAL
+  config ZMK_KEYBOARD_NAME
+    default "Charybdis RC"
+  config BT_MAX_CONN
+    default 2
+  config BT_MAX_PAIRED
+    default 2
+  config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
+    default 1
 endif
