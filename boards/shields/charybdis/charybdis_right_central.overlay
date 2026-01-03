@@ -1,8 +1,13 @@
 #include "charybdis.dtsi"
 #include "charybdis_3610.dtsi"
+#include "charybdis_ec11.dtsi"
 #include "split_input.dtsi"
 
 / {
+	chosen {
+		zmk,sensors = &sensors;
+	};
+
 	trackball_listener_local: trackball_listener_local {
 		compatible = "zmk,input-listener";
 		device = <&trackball>;
@@ -53,7 +58,6 @@
     status = "okay";
 };
 
-// Disable split listeners - we're using local trackball
 &trackball_listener {
     status = "disabled";
 };
