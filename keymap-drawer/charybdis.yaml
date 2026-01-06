@@ -35,7 +35,7 @@ layers:
   - NUMS
   - {t: ENTER, h: MOUSE}
   - {t: SPACE, h: MOUSE}
-  - {t: BACKSPACE, h: DANGER}
+  - {t: BSPC, h: DANGER}
   NUMS:
   - '!'
   - '@'
@@ -68,7 +68,7 @@ layers:
   - '|'
   - \
   - {t: ▽, type: trans}
-  - {t: PLAY PAUSE, type: held}
+  - {t: PP, type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -85,9 +85,9 @@ layers:
   - BT CLR
   - {t: ▽, type: trans}
   - MUTE
-  - PREVIOUS
+  - PREV
   - NEXT
-  - PLAY PAUSE
+  - PP
   - LEFT
   - DOWN
   - UP
@@ -98,14 +98,14 @@ layers:
   - {t: BT, h: '2'}
   - {t: BT, h: '3'}
   - {t: BT, h: '4'}
-  - {t: ▽, type: trans}
-  - VOLUME DOWN
-  - VOLUME UP
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - PLAY PAUSE
+  - OUT TOG
+  - VOL DN
+  - VOL UP
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - PP
+  - OUT USB
+  - OUT BLE
   - {t: ▽, type: trans}
   - {type: held}
   MOUSE:
