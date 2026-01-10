@@ -17,6 +17,6 @@
     sensors: sensors {
         compatible = "zmk,keymap-sensors";
         sensors = <&encoder>;
-        triggers-per-rotation = <20>; // Actions per rotation (sensitivity): <20>=1 per detent, <10>=half speed, <5>=quarter speed
+        triggers-per-rotation = <40>; // Actions per rotation (sensitivity): higher = smoother scrolling
     };
 };

@@ -25,5 +25,12 @@
             hold-trigger-key-positions = <KEYS_L KEYS_T>;
             hold-trigger-on-release;
         };
+
+        inc_dec_msc: sensor_rotate_mouse_scroll {
+            compatible = "zmk,behavior-sensor-rotate";
+            #sensor-binding-cells = <0>;
+            // Use MOVE_Y for smooth scrolling (smaller value = gentler scroll)
+            bindings = <&msc MOVE_Y(5)>, <&msc MOVE_Y(-5)>;
+        };
     };
 };
