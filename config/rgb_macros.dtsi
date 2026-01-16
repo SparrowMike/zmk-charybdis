@@ -1,0 +1,28 @@
+/*
+ * RGB Underglow Macros - Shortened names for cleaner keymaps
+ */
+
+/ {
+    macros {
+        rgb_tog: rgb_tog {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_TOG>;
+        };
+        rgb_eff: rgb_eff {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_EFF>;
+        };
+        rgb_bri: rgb_bri {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_BRI>;
+        };
+        rgb_hui: rgb_hui {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_HUI>;
+        };
+    };
+};

@@ -2,6 +2,7 @@
 #include "charybdis_3610.dtsi"
 #include "charybdis_ec11.dtsi"
 #include "split_input.dtsi"
+#include "charybdis_led.dtsi"
 
 / {
 	chosen {

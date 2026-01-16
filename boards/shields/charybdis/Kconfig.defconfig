@@ -5,7 +5,7 @@ config CHARYBDIS_ALL_CENTRALS
   def_bool CHARYBDIS_ALL_DONGLES || SHIELD_CHARYBDIS_RIGHT_CENTRAL
 
 config CHARYBDIS_ALL_HALVES
-  def_bool SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_LEFT_ENCODER || SHIELD_CHARYBDIS_RIGHT
+  def_bool SHIELD_CHARYBDIS_LEFT || SHIELD_CHARYBDIS_LEFT_ENCODER || SHIELD_CHARYBDIS_RIGHT || SHIELD_CHARYBDIS_RIGHT_CENTRAL
 
 config CHARYBDIS_TRACKBALL_VARIANTS
   def_bool SHIELD_CHARYBDIS_RIGHT || SHIELD_CHARYBDIS_RIGHT_CENTRAL
@@ -23,6 +23,27 @@ if CHARYBDIS_ANY_VARIANT
     default 300000
   config ZMK_IDLE_SLEEP_TIMEOUT
     default 1800000
+endif
+
+if CHARYBDIS_ALL_HALVES
+# Enable RGB underglow for split halves (SK6812 MINI-E)
+  config ZMK_RGB_UNDERGLOW
+    default y
+  config WS2812_STRIP
+    default y
+  config SPI
+    default y
+# Start with RGB enabled
+  config ZMK_RGB_UNDERGLOW_ON_START
+    default y
+# Turn off RGB when keyboard is idle to save battery
+  config ZMK_RGB_UNDERGLOW_AUTO_OFF_IDLE
+    default y
+# External power control to truly turn off LEDs and save battery
+  config ZMK_EXT_POWER
+    default y
+  config ZMK_RGB_UNDERGLOW_EXT_POWER
+    default y
 endif
 
 if CHARYBDIS_TRACKBALL_VARIANTS

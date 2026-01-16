@@ -1,0 +1,22 @@
+/*
+ * Copyright (c) 2024 The ZMK Contributors
+ * SPDX-License-Identifier: MIT
+ *
+ * Board-specific overlay for nice!nano v2
+ * Enables external power control for RGB LEDs
+ *
+ * P0.13 on nice!nano controls VCC output to external peripherals.
+ * Setting it HIGH enables power, LOW disables it.
+ * RGB LEDs draw ~1mA per LED even when "off", so ext_power saves battery.
+ */
+
+#include <dt-bindings/gpio/gpio.h>
+
+/ {
+    ext-power {
+        compatible = "zmk,ext-power-generic";
+        label = "EXT_POWER";
+        control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+        init-delay-ms = <50>;
+    };
+};

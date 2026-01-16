@@ -1,6 +1,7 @@
 #include "charybdis.dtsi"
 #include "charybdis_3610.dtsi"
 #include "split_input.dtsi"
+#include "charybdis_led.dtsi"
 
 &default_transform {
 	col-offset = <6>;
