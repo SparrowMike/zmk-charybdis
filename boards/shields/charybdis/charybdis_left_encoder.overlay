@@ -2,6 +2,10 @@
 #include "charybdis_ec11.dtsi"
 #include "charybdis_led.dtsi"
 
+&led_strip {
+    chain-length = <46>;
+};
+
 &kscan0 {
     compatible = "zmk,kscan-gpio-matrix";
     diode-direction = "row2col";

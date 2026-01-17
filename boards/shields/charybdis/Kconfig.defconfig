@@ -62,6 +62,19 @@ if CHARYBDIS_TRACKBALL_VARIANTS
 endif
 
 if CHARYBDIS_ALL_DONGLES
+# Enable RGB underglow behavior on dongle (no physical LEDs, but needed
+# for &rgb_ug to work and forward commands to peripherals)
+  config ZMK_RGB_UNDERGLOW
+    default y
+  config WS2812_STRIP
+    default y
+  config SPI
+    default y
+# Dongle has no physical LEDs or ext_power circuit
+  config ZMK_RGB_UNDERGLOW_EXT_POWER
+    default n
+  config ZMK_EXT_POWER
+    default n
 # Bluetooth connection management
 # Allow up to 5 simultaneous BT connections (dongles handle multiple peripherals)
   config BT_MAX_CONN
