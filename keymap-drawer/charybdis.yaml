@@ -104,8 +104,8 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - PP
-  - OUT USB
-  - OUT BLE
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {type: held}
   MOUSE:

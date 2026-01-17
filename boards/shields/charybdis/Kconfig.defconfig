@@ -76,25 +76,6 @@ if SHIELD_CHARYBDIS_DONGLE
     default y
 endif
 
-if SHIELD_CHARYBDIS_DONGLE_PROSPECTOR
-  config ZMK_KEYBOARD_NAME
-    default "Charybdis Pro"
-  config PROSPECTOR_USE_AMBIENT_LIGHT_SENSOR
-    default n
-  config PROSPECTOR_FIXED_BRIGHTNESS
-    default 10
-
-    # config PROSPECTOR_DISPLAY_SLEEP_ENABLE
-    #   default y
-  # config PROSPECTOR_DISPLAY_IDLE_TIMEOUT_MS
-  #   default 30000
-  # config PROSPECTOR_DISPLAY_SLEEP_USE_PM
-    # default y
-
-  config PM_DEVICE
-    default y
-endif
-
 if CHARYBDIS_ALL_CENTRALS
   config ZMK_SPLIT_ROLE_CENTRAL
     default y
