@@ -32,12 +32,10 @@ if CHARYBDIS_TRACKBALL_VARIANTS
     default y
   config SPI
     default y
-  config PMW3610
+  config PMW3610_ALT
     default y
-  config PMW3610_INIT_POWER_UP_EXTRA_DELAY_MS
+  config PMW3610_ALT_INIT_POWER_UP_EXTRA_DELAY_MS
     default 3000
-  config PMW3610_SWAP_XY
-    default y
 endif
 
 if CHARYBDIS_ALL_DONGLES
@@ -60,7 +58,10 @@ if CHARYBDIS_ALL_DONGLES
 # Disable battery service (dongles are typically USB powered)
   config BT_BAS
     default n
-# Show macOS-style modifier keys on display
+endif
+
+# Show macOS-style modifier keys on display (only when dongle_display shield is used)
+if SHIELD_DONGLE_DISPLAY
   config ZMK_DONGLE_DISPLAY_MAC_MODIFIERS
     default y
 endif
@@ -68,27 +69,10 @@ endif
 if SHIELD_CHARYBDIS_DONGLE
   config ZMK_KEYBOARD_NAME
     default "Charybdis"
-# I2C and SSD1306 OLED driver support for OLED-based dongles only
+# I2C and SSD1306 OLED driver support (handles SH1106 via devicetree compatible)
   config I2C
     default y
   config SSD1306
-    default y
-endif
-
-if SHIELD_CHARYBDIS_DONGLE_PROSPECTOR
-  config ZMK_KEYBOARD_NAME
-    default "Charybdis Pro"
-  config PROSPECTOR_USE_AMBIENT_LIGHT_SENSOR
-    default n
-  config PROSPECTOR_FIXED_BRIGHTNESS
-    default 10
-  config PROSPECTOR_DISPLAY_SLEEP_ENABLE
-    default y
-  config PROSPECTOR_DISPLAY_IDLE_TIMEOUT_MS
-    default 30000
-  config PROSPECTOR_DISPLAY_SLEEP_USE_PM
-    default y
-  config PM_DEVICE
     default y
 endif
 
@@ -111,8 +95,8 @@ if CHARYBDIS_ALL_CENTRALS
 # Enable input subsystem for handling trackball and mouse events
   config INPUT
     default y
-# Enable ZMK mouse support for trackball integration
-  config ZMK_MOUSE
+# Enable ZMK pointing support for trackball integration
+  config ZMK_POINTING
     default y
 # Fetch and display battery levels from connected peripheral halves
   config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
