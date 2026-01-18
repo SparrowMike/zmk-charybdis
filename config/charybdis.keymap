@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
-#define ZMK_POINTING_DEFAULT_SCRL_VAL 120
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 120  // scroll sensitivity (higher = faster)
 #include <dt-bindings/zmk/pointing.h>
 
 #include <dt-bindings/zmk/ext_power.h>
@@ -11,9 +11,9 @@
 
 #include "zmk-helpers/helper.h"
 
-#define HM_TAPPING_TERM 180
-#define HM_TAPPING_TERM_FAST 150
-#define HM_PRIOR_IDLE 120
+#define HM_TAPPING_TERM 180       // ms to hold before mod activates
+#define HM_TAPPING_TERM_FAST 150  // ms for quick-tap repeat
+#define HM_PRIOR_IDLE 120         // ms of idle required before hold-tap
 
 #define COMBO_TERM_FAST 35
 #define COMBO_TERM_SLOW 40
@@ -99,7 +99,7 @@
                                              &trans        &trans         &trans            &trans        &trans
             //                             ╰─────────────┴──────────────┴─────────────╯   ╰─────────────┴──────────────╯
             >;
-            sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
+            sensor-bindings = <&zoom_encoder>;
         };
 
         SCROLL {
