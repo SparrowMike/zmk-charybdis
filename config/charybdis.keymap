@@ -3,6 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
 
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 120
 #include <dt-bindings/zmk/pointing.h>
 
 #include <dt-bindings/zmk/ext_power.h>
@@ -82,7 +83,7 @@
                                              &kp C_PP      &trans         &trans            &trans        &trans
             //                             ╰─────────────┴──────────────┴─────────────╯   ╰─────────────┴──────────────╯
             >;
-            sensor-bindings = <&inc_dec_kp PG_UP PG_DN>;
+            sensor-bindings = <&scroll_encoder>;
         };
 
         MOUSE {
