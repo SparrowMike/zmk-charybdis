@@ -35,7 +35,7 @@ if CHARYBDIS_TRACKBALL_VARIANTS
   config PMW3610_ALT
     default y
   config PMW3610_ALT_INIT_POWER_UP_EXTRA_DELAY_MS
-    default 3000
+    default 1000
 endif
 
 if CHARYBDIS_ALL_DONGLES
@@ -58,6 +58,16 @@ if CHARYBDIS_ALL_DONGLES
 # Disable battery service (dongles are typically USB powered)
   config BT_BAS
     default n
+# Split link BLE connection parameters (dongle <-> peripherals)
+# INT=6 (7.5ms) for fast trackball response when active
+# LATENCY=4: peripheral can sleep up to 4 events when idle (saves battery),
+# but wakes immediately when it has trackball/key data to send
+  config ZMK_SPLIT_BLE_PREF_INT
+    default 6
+  config ZMK_SPLIT_BLE_PREF_LATENCY
+    default 4
+  config ZMK_SPLIT_BLE_PREF_TIMEOUT
+    default 400
 endif
 
 # Show macOS-style modifier keys on display (only when dongle_display shield is used)
@@ -115,4 +125,18 @@ if SHIELD_CHARYBDIS_RIGHT_CENTRAL
     default 2
   config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
     default 1
+endif
+
+if SHIELD_CHARYBDIS_RIGHT
+# BLE peripheral connection parameter preferences (right half <-> dongle)
+# Matches dongle's ZMK_SPLIT_BLE_PREF_* — LATENCY=4 allows sleeping when idle
+# but peripheral wakes immediately when trackball/key data is ready
+  config BT_PERIPHERAL_PREF_MIN_INT
+    default 6
+  config BT_PERIPHERAL_PREF_MAX_INT
+    default 9
+  config BT_PERIPHERAL_PREF_LATENCY
+    default 4
+  config BT_PERIPHERAL_PREF_TIMEOUT
+    default 400
 endif

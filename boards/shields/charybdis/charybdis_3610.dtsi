@@ -52,5 +52,6 @@
         invert-x;
         invert-y;
         force-awake;
+        force-awake-4ms-mode;
     };
 };
