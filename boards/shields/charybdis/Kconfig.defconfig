@@ -23,6 +23,11 @@ if CHARYBDIS_ANY_VARIANT
     default 300000
   config ZMK_IDLE_SLEEP_TIMEOUT
     default 1800000
+# Use higher TX power (+8dBm) on every radio (central and halves) for a
+# stronger split link; power cost is negligible per ZMK's own docs.
+  choice BT_CTLR_TX_PWR
+    default BT_CTLR_TX_PWR_PLUS_8
+  endchoice
 endif
 
 if CHARYBDIS_TRACKBALL_VARIANTS
@@ -89,10 +94,6 @@ endif
 if CHARYBDIS_ALL_CENTRALS
   config ZMK_SPLIT_ROLE_CENTRAL
     default y
-# Use higher TX power (+8dBm) for better range and reliability
-  choice BT_CTLR_TX_PWR
-    default BT_CTLR_TX_PWR_PLUS_8
-  endchoice
 # Bluetooth connection interval optimization
 # Lower intervals (6-12 * 1.25ms = 7.5-15ms) for better responsiveness
   config BT_PERIPHERAL_PREF_MIN_INT
