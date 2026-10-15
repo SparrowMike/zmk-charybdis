@@ -28,19 +28,19 @@ manifest:
 
     - name: zmk-pmw3610-driver
       remote: badjeff
-      revision: 44b4a76b74d293a93cec4ccb7e04cb8d29c10f93  # main, 2026-10-09
+      revision: 44b4a76b74d293a93cec4ccb7e04cb8d29c10f93  # main, 2026-04-16
 
     - name: zmk-helpers
       remote: urob
-      revision: 7bcba18fc8df27303eb92a435d33ea870cc51f98  # main, 2026-10-09
+      revision: 7bcba18fc8df27303eb92a435d33ea870cc51f98  # main, 2026-09-10
 
     - name: zmk-dongle-display
       remote: englmaxi
-      revision: 2bb333f87136d33e94a49d86236ed9ec254a8060  # main, 2026-10-09
+      revision: 2bb333f87136d33e94a49d86236ed9ec254a8060  # main, 2026-02-13
 
     - name: prospector-zmk-module
       remote: carrefinho
-      revision: ed98221f3b52b7066dbb10ba3af8a29150b93a5a  # feat/new-status-screens, 2026-10-09
+      revision: ed98221f3b52b7066dbb10ba3af8a29150b93a5a  # feat/new-status-screens, 2026-02-17
 
   self:
     path: config

@@ -41,7 +41,7 @@ Defined in `build.yaml`; shield logic lives in `boards/shields/charybdis/`.
 
 ## Requirements
 
-This config targets ZMK `main` (not v0.3.0). Board targets
+This config targets ZMK `main` as pinned in `west.yml` (not v0.3.0). Board targets
 use the new HWMv2 form: `nice_nano//zmk` and `xiao_ble/nrf52840/zmk`.
 
 ## West modules and pinning
