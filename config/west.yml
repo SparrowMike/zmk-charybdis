@@ -1,3 +1,9 @@
+# All projects are pinned to full commit SHAs for reproducible builds.
+# To bump: resolve the new SHA with
+#   gh api repos/<org>/<repo>/commits/<branch> --jq .sha
+# replace the revision below, update the trailing comment, and verify the CI build.
+# zmk is pinned too; `import: app/west.yml` still pulls in its own dependencies
+# at the versions that zmk commit specifies.
 manifest:
   remotes:
     - name: zmkfirmware
@@ -17,24 +23,24 @@ manifest:
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: main
+      revision: 4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85  # main, 2026-10-09
       import: app/west.yml
 
     - name: zmk-pmw3610-driver
       remote: badjeff
-      revision: main
+      revision: 44b4a76b74d293a93cec4ccb7e04cb8d29c10f93  # main, 2026-10-09
 
     - name: zmk-helpers
       remote: urob
-      revision: main
+      revision: 7bcba18fc8df27303eb92a435d33ea870cc51f98  # main, 2026-10-09
 
     - name: zmk-dongle-display
       remote: englmaxi
-      revision: main
+      revision: 2bb333f87136d33e94a49d86236ed9ec254a8060  # main, 2026-10-09
 
     - name: prospector-zmk-module
       remote: carrefinho
-      revision: feat/new-status-screens
+      revision: ed98221f3b52b7066dbb10ba3af8a29150b93a5a  # feat/new-status-screens, 2026-10-09
 
   self:
     path: config
