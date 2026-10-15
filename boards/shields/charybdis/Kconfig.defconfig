@@ -23,8 +23,8 @@ if CHARYBDIS_ANY_VARIANT
     default 300000
   config ZMK_IDLE_SLEEP_TIMEOUT
     default 1800000
-# Use higher TX power (+8dBm) on every radio (central and halves) for a
-# stronger split link; power cost is negligible per ZMK's own docs.
+# Use higher TX power (+8dBm) on every radio (centrals and peripheral halves)
+# for a stronger split link; power cost is negligible per ZMK's own docs.
   choice BT_CTLR_TX_PWR
     default BT_CTLR_TX_PWR_PLUS_8
   endchoice
@@ -63,16 +63,6 @@ if CHARYBDIS_ALL_DONGLES
 # Disable battery service (dongles are typically USB powered)
   config BT_BAS
     default n
-# Split link BLE connection parameters (dongle <-> peripherals)
-# INT=6 (7.5ms) for fast trackball response when active
-# LATENCY=4: peripheral can sleep up to 4 events when idle (saves battery),
-# but wakes immediately when it has trackball/key data to send
-  config ZMK_SPLIT_BLE_PREF_INT
-    default 6
-  config ZMK_SPLIT_BLE_PREF_LATENCY
-    default 4
-  config ZMK_SPLIT_BLE_PREF_TIMEOUT
-    default 400
 endif
 
 # Show macOS-style modifier keys on display (only when dongle_display shield is used)
@@ -94,8 +84,8 @@ endif
 if CHARYBDIS_ALL_CENTRALS
   config ZMK_SPLIT_ROLE_CENTRAL
     default y
-# Bluetooth connection interval optimization
-# Lower intervals (6-12 * 1.25ms = 7.5-15ms) for better responsiveness
+# Preferred connection parameters advertised to the HOST (PC/phone) link, not
+# the split link. Lower intervals (6-12 * 1.25ms = 7.5-15ms) for responsiveness.
   config BT_PERIPHERAL_PREF_MIN_INT
     default 6
   config BT_PERIPHERAL_PREF_MAX_INT
@@ -109,6 +99,13 @@ if CHARYBDIS_ALL_CENTRALS
 # Enable ZMK pointing support for trackball integration
   config ZMK_POINTING
     default y
+# Split link: the central chooses the connection parameters for its peripherals
+# at connect time. Only LATENCY differs from upstream defaults (INT 6, TIMEOUT
+# 400); upstream LATENCY is 30. Latency is permission for the peripheral to skip
+# connection events when idle (saves battery), not a requirement; 4 keeps
+# wake-up delay low for trackball/key data.
+  config ZMK_SPLIT_BLE_PREF_LATENCY
+    default 4
 # Fetch and display battery levels from connected peripheral halves
   config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
     default y
@@ -126,18 +123,4 @@ if SHIELD_CHARYBDIS_RIGHT_CENTRAL
     default 2
   config ZMK_SPLIT_BLE_CENTRAL_PERIPHERALS
     default 1
-endif
-
-if SHIELD_CHARYBDIS_RIGHT
-# BLE peripheral connection parameter preferences (right half <-> dongle)
-# Matches dongle's ZMK_SPLIT_BLE_PREF_* — LATENCY=4 allows sleeping when idle
-# but peripheral wakes immediately when trackball/key data is ready
-  config BT_PERIPHERAL_PREF_MIN_INT
-    default 6
-  config BT_PERIPHERAL_PREF_MAX_INT
-    default 9
-  config BT_PERIPHERAL_PREF_LATENCY
-    default 4
-  config BT_PERIPHERAL_PREF_TIMEOUT
-    default 400
 endif
