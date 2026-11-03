@@ -41,6 +41,11 @@ if CHARYBDIS_TRACKBALL_VARIANTS
     default y
   config PMW3610_ALT_INIT_POWER_UP_EXTRA_DELAY_MS
     default 1000
+# Without a minimum, every sensor sample becomes separate X/Y/sync events over the
+# split BLE link (queue of 32). Capping near the 7.5ms split connection interval
+# keeps the link from bursting and stalling. Measured with mousetap in dongle mode.
+  config PMW3610_ALT_REPORT_INTERVAL_MIN
+    default 8
 endif
 
 if CHARYBDIS_ALL_DONGLES
