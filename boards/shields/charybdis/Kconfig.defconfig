@@ -107,10 +107,11 @@ if CHARYBDIS_ALL_CENTRALS
 # Split link: the central chooses the connection parameters for its peripherals
 # at connect time. Only LATENCY differs from upstream defaults (INT 6, TIMEOUT
 # 400); upstream LATENCY is 30. Latency is permission for the peripheral to skip
-# connection events when idle (saves battery), not a requirement; 4 keeps
-# wake-up delay low for trackball/key data.
+# connection events when idle (saves battery). Set to 0 to test whether skipped
+# events cause the 37-45ms pointer stalls seen with mousetap (latency 4 = up to
+# 5 x 7.5ms between events). Costs some right-half battery; revisit if no gain.
   config ZMK_SPLIT_BLE_PREF_LATENCY
-    default 4
+    default 0
 # Fetch and display battery levels from connected peripheral halves
   config ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
     default y
