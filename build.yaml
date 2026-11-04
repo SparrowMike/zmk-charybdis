@@ -9,13 +9,6 @@ include:
     snippet: studio-rpc-usb-uart
     cmake-args: -DCONFIG_ZMK_STUDIO=y
 
-  # TEMPORARY: prospector dongle with the display disabled, to test whether display
-  # rendering causes the periodic ~30ms pointer stalls. Remove once resolved.
-  - board: xiao_ble/nrf52840/zmk
-    shield: charybdis_dongle_prospector
-    cmake-args: -DCONFIG_ZMK_DISPLAY=n
-    artifact-name: charybdis_dongle_prospector_nodisplay
-
   - board: nice_nano//zmk
     shield: charybdis_left
     # snippet: zmk-usb-logging
